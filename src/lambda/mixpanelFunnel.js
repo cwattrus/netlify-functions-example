@@ -10,7 +10,7 @@ exports.handler = async (event, context) => {
   console.log(auth);
   return fetch(API_ENDPOINT, { headers: {
       "Accept": "application/json",
-      "Authorization": "Basic " + "auth"
+      "Authorization": "Basic " + "Y2U1NjBmNjYyODY5MDUwNjA1YTI2ZTQ0MWU5OTBmZTQ6"
     }
   })
     .then(response => response.json())
