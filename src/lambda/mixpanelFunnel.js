@@ -6,7 +6,8 @@ const API_ENDPOINT = 'https://mixpanel.com/api/2.0/funnels/?funnel_id=6321819&fr
 exports.handler = async (event, context) => {
   const params = querystring.parse(event.body);
   const auth = params.auth || "";
-
+  console.log(params);
+  console.log(auth);
   return fetch(API_ENDPOINT, { headers: {
       "Accept": "application/json",
       "Authorization": "Basic" + auth
