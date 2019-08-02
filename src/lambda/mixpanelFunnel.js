@@ -5,10 +5,10 @@ const API_ENDPOINT = 'https://mixpanel.com/api/2.0/funnels/?funnel_id=6321819&fr
 exports.handler = async (event, context) => {
   const params = querystring.parse(event.body);
   const auth = params.auth || "";
-  if(auth==="b6063452-f65a-44fa-bcb0-1d223337a84f") {
-    return fetch(API_ENDPOINT, { headers: {
+
+  return fetch(API_ENDPOINT, { headers: {
       "Accept": "application/json",
-      "Authorization": "Basic Y2U1NjBmNjYyODY5MDUwNjA1YTI2ZTQ0MWU5OTBmZTQ6"
+      "Authorization": `Basic ${auth}`
     }
   })
     .then(response => response.json())
@@ -17,8 +17,4 @@ exports.handler = async (event, context) => {
       body: data.data
     }))
     .catch(error => ({ statusCode: 422, body: String(error) }));
-  }
-  else {
-    return { statusCode: 405, body: "Method Not Allowed" };
-  }
 };
