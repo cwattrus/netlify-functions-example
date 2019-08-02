@@ -11,7 +11,7 @@ exports.handler = async (event, context) => {
     .then(response => response.json())
     .then(data => ({
       statusCode: 200,
-      body: data
+      body: data["2019-07-01"]["https://docs-qa-us-east-2.dev.braintree-api.com/start/overview#client-and-server-sdks"]
     }))
     .catch(error => ({ statusCode: 422, body: String(error) }));
 };
